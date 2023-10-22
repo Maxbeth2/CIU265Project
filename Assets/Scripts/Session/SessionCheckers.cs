@@ -30,8 +30,12 @@ public partial class Session : MonoBehaviour
 
     private void CheckArduino()
     {
+        
         if (currentScreen.MyQ.HasArduinoEvent)
+        {
             currentScreen.MyQ.performEvent("hey");
+            Debug.Log("Hey!!");
+        }
     }
 
     private void CheckMusic()

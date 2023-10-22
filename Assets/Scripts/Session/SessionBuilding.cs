@@ -16,13 +16,13 @@ public partial class Session : MonoBehaviour
         allQuestions.Add(new Question(Qtype.names, "Please put all your names in here, one at a time:"));
 
         allQuestions.Add(
-            new Question(Qtype.rank, "Which group member has the longest reach?")
+            new Question(Qtype.rank, "Which group member has the longest reach?").withArduinoEvt(new DropMagazines())
             .withFollowUp(new Question(Qtype.singleOut, "Has !PFIRST played basketball?")));
 
         allQuestions.Add(
             new Question(Qtype.rank, "Who is best suited to handle small animals?")
-            .withFollowUp(new Question(Qtype.singleOut, "!PFIRST, Do you try to save worms that are crossing the street?"))
-            .withArduinoEvt(new Shake()));
+            .withFollowUp(new Question(Qtype.singleOut, "!PFIRST, Do you try to save worms that are crossing the street?").withArduinoEvt(new ShakeOff()))
+            .withArduinoEvt(new Shake(0)));
 
 
         _DoFollowUps();
@@ -39,7 +39,7 @@ public partial class Session : MonoBehaviour
         allQuestions.Add(
             new Question(Qtype.rank, "Who is the most law-abiding?")
             .withFollowUp(new Question(Qtype.singleOut, "Has !PLAST ever broken the law?"))
-            .withArduinoEvt(new Shake())
+            .withArduinoEvt(new Shake(1))
             );
 
 

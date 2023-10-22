@@ -9,8 +9,31 @@ public interface ArduinoEvent
 
 public class Shake : ArduinoEvent
 {
+    int level;
+    public Shake(int level) { this.level = level; }
+
     public void PerformEvent()
     {
-        Debug.Log("Sent to arduino");
+        DataSender ds =GameObject.FindObjectOfType<DataSender>();
+        ds.activateRelay(level);
+    }
+}
+
+public class ShakeOff : ArduinoEvent
+{
+
+    public void PerformEvent()
+    {
+        DataSender ds =GameObject.FindObjectOfType<DataSender>();
+        ds.ShutOffVibrations();
+    }
+}
+
+public class DropMagazines : ArduinoEvent
+{
+    public void PerformEvent()
+    {
+        DataSender ds =GameObject.FindObjectOfType<DataSender>();
+        ds.DropMagazines();
     }
 }
