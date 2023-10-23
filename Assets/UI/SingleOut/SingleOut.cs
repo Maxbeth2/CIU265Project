@@ -44,6 +44,7 @@ public class SingleOut : BaseScreen
 
         TextElement question = new TextElement();
         question.text = ReplacePlaceholders(myQ.prompt, myQ.orderedNames);
+        question.style.color = new Color(0, 255, 0);
         questionField.Add(question);
         question.transform.position = new Vector2(15.0f, 0.0f);
 

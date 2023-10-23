@@ -22,7 +22,6 @@ public class Blank : BaseScreen
         return base.GetAnswer();
     }
 
-
     public override void Rebuild(Question myQ)
     {
         base.Rebuild(myQ);
@@ -30,6 +29,9 @@ public class Blank : BaseScreen
         visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/Blank/Blank.uxml");
         labelFromUXML = visualTree.Instantiate();
         root.Add(labelFromUXML);
+
+        Label l = labelFromUXML.Q<Label>();
+        l.text = myQ.prompt;
 
         Button finishButton = labelFromUXML.Q<Button>();
         finishButton.RegisterCallback<ClickEvent>(FinishQuestion);

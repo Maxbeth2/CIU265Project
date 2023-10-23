@@ -43,12 +43,19 @@ public class RankQuestion : BaseScreen
         VisualElement questionField = labelFromUXML.Q("questionField");
 
         Button finishButton = new Button();
+        finishButton.style.backgroundColor = new Color(0, 0, 0);
+        TextElement bTxt = new TextElement();
+        bTxt.text = "confirm";
+        bTxt.style.color = new Color(0, 255, 0);
+        finishButton.Add(bTxt);
+
         finishButton.AddToClassList("continue");
         finishButton.RegisterCallback<ClickEvent>(FinishQuestion);
         questionField.Add(finishButton);
         finishButton.transform.position = new Vector2(15.0f, 200.0f);
 
         TextElement question = new TextElement();
+        question.style.color = new Color(0, 255, 0);
         question.text = myQ.prompt;
         questionField.Add(question);
         question.transform.position = new Vector2(15.0f, 50.0f);

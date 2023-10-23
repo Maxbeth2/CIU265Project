@@ -32,9 +32,8 @@ public class NameEntry : BaseScreen
 
         textField = labelFromUXML.Q<TextField>();
         VisualElement qf = questionField;
-        TextElement question = new TextElement();
+        Label question = qf.Q<Label>("prompt");
         question.text = myQ.prompt;
-        questionField.Add(question);
         //question.transform.position = new Vector2(15.0f, -200.0f);
 
         Button myBtn = labelFromUXML.Q<Button>("enterName");
@@ -57,6 +56,7 @@ public class NameEntry : BaseScreen
         textField.SetValueWithoutNotify("");
         TextElement te = new TextElement();
         te.text = txt;
+        te.style.color = new Color(0, 255, 0);
         VisualElement nf = root.Q("namefield");
 
         nf.Add(te);

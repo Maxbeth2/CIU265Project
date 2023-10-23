@@ -15,17 +15,21 @@ public partial class Session : MonoBehaviour
 
         allQuestions.Add(new Question(Qtype.names, "Please put all your names in here, one at a time:"));
 
+        _Intermission("Now you will get some questions and you will rank yourselves.");
+
         allQuestions.Add(
-            new Question(Qtype.rank, "Which group member has the longest reach?").withArduinoEvt(new DropMagazines())
+            new Question(Qtype.rank, "Which group member has the longest reach?")
+            .withArduinoEvt(new DropMagazines())
             .withFollowUp(new Question(Qtype.singleOut, "Has !PFIRST played basketball?")));
 
         allQuestions.Add(
             new Question(Qtype.rank, "Who is best suited to handle small animals?")
-            .withFollowUp(new Question(Qtype.singleOut, "!PFIRST, Do you try to save worms that are crossing the street?").withArduinoEvt(new ShakeOff()))
+            .withFollowUp(new Question(Qtype.singleOut, "!PFIRST, Do you try to save worms that are crossing the street?")
+            .withArduinoEvt(new ShakeOff()))
             .withArduinoEvt(new Shake(0)));
 
 
-        _DoFollowUps();
+        _Intermission("I close my eyes and I picture us together.");
 
 
         allQuestions.Add(
@@ -43,7 +47,7 @@ public partial class Session : MonoBehaviour
             );
 
 
-        _DoFollowUps();
+        _Intermission("");
 
 
         //rankQuestion.Add(new Question(Type.rank, "Who is the best juggler?"));
@@ -68,7 +72,7 @@ public partial class Session : MonoBehaviour
             .withFollowUp(new Question(Qtype.singleOut, "Do you believe i pass the turing test?")));
 
 
-        _DoFollowUps();
+        _Intermission("Now we are almost done.");
 
         
 
@@ -76,9 +80,9 @@ public partial class Session : MonoBehaviour
 
 
 
-    private void _DoFollowUps()
+    private void _Intermission(string quote)
     {
-        allQuestions.Add(new Question(Qtype.divider, ""));
+        allQuestions.Add(new Question(Qtype.divider, quote));
     }
 
     private void _InitQuestionaire()

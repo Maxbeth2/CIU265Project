@@ -1,15 +1,15 @@
 {
     "UxmlGuid": "cbcef1becae8a4ab9abcfc8c86a5f606",
-    "UxmlPath": "Assets/UI/DropDownUXML.uxml",
+    "UxmlPath": "Assets/UI/Ranking/DragDrop.uxml",
     "CanvasX": 0,
     "CanvasY": 0,
     "CanvasWidth": 686,
     "CanvasHeight": 450,
     "MatchGameView": false,
-    "ZoomScale": 1.0,
+    "ZoomScale": 0.800000011920929,
     "PanOffset": {
-        "x": 194.61224365234376,
-        "y": 294.05242919921877
+        "x": 25.039031982421876,
+        "y": 54.585514068603519
     },
     "ColorModeBackgroundOpacity": 1.0,
     "ImageModeCanvasBackgroundOpacity": 1.0,
