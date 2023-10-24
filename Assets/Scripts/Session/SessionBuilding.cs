@@ -82,6 +82,8 @@ public partial class Session : MonoBehaviour
         allQuestions.Add(new Question(Qtype.rank, "Is there anyone in the group that does not believe computers are conscious?")
             .withFollowUp(new Question(Qtype.singleOut, "!PLAST, do you believe i pass the turing test?")));
 
+        _Intermission("Almost ready.");
+
         allQuestions.Add(new Question(Qtype.divider, "It is finished. You may enter door number 1. Thank you for your participation.")
         .withArduinoEvt(new Shake(3)));
         
