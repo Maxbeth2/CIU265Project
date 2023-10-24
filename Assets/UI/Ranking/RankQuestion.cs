@@ -1,10 +1,13 @@
-using UnityEditor;
 using UnityEngine;
 using Unity;
 using System.Linq;
 using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 
 public class RankQuestion : BaseScreen
@@ -35,9 +38,7 @@ public class RankQuestion : BaseScreen
     {
         base.Rebuild(myQ);
         
-        root.style.alignItems = Align.FlexEnd;
-        root.style.flexDirection = FlexDirection.Row;
-        visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/Ranking/DragDrop.uxml");
+        visualTree = Resources.Load<VisualTreeAsset>("DragDrop");
         labelFromUXML = visualTree.Instantiate();
 
         VisualElement questionField = labelFromUXML.Q("questionField");
@@ -64,7 +65,7 @@ public class RankQuestion : BaseScreen
 
         root.Add(labelFromUXML);
 
-        //var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/UI/myStyle.uss");
+        //var styleSheet = Resources.Load<StyleSheet>("Assets/UI/myStyle.uss");
 
 
         draggables = new List<VisualElement>();

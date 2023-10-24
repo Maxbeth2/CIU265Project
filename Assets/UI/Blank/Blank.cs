@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using Unity;
 using System.Linq;
@@ -6,6 +5,10 @@ using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 
 public class Blank : BaseScreen
@@ -26,7 +29,7 @@ public class Blank : BaseScreen
     {
         base.Rebuild(myQ);
 
-        visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/Blank/Blank.uxml");
+        visualTree = Resources.Load<VisualTreeAsset>("Blank");
         labelFromUXML = visualTree.Instantiate();
         root.Add(labelFromUXML);
 
@@ -36,7 +39,7 @@ public class Blank : BaseScreen
         Button finishButton = labelFromUXML.Q<Button>();
         finishButton.RegisterCallback<ClickEvent>(FinishQuestion);
 
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/UI/myStyle.uss");
+        var styleSheet = Resources.Load<StyleSheet>("Assets/UI/myStyle.uss");
         
 
 

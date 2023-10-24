@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using Unity;
 using System.Linq;
@@ -6,6 +5,10 @@ using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 
 public class SingleOut : BaseScreen
@@ -30,9 +33,7 @@ public class SingleOut : BaseScreen
     {
         base.Rebuild(myQ);
 
-        root.style.alignItems = Align.FlexEnd;
-        root.style.flexDirection = FlexDirection.Row;
-        visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/SingleOut/SingleOut.uxml");
+        visualTree = Resources.Load<VisualTreeAsset>("SingleOut");
         labelFromUXML = visualTree.Instantiate();
 
         VisualElement questionField = labelFromUXML.Q("questionField");
@@ -52,7 +53,7 @@ public class SingleOut : BaseScreen
 
         root.Add(labelFromUXML);
 
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/UI/myStyle.uss");
+        var styleSheet = Resources.Load<StyleSheet>("Assets/UI/myStyle.uss");
 
     }
 

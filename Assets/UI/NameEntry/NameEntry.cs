@@ -1,8 +1,11 @@
-using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity;
 using UnityEngine.UIElements;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 public class NameEntry : BaseScreen
 {
@@ -16,14 +19,14 @@ public class NameEntry : BaseScreen
         participants = new List<string>();
 
 
-        visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/NameEntry/NameEntry.uxml");
+        visualTree = Resources.Load<VisualTreeAsset>("NameEntry");
         labelFromUXML = visualTree.Instantiate();
 
 
 
         VisualElement questionField = labelFromUXML.Q("questionField");
         Image img = new Image();
-        img.image = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/UI/powered.png");
+        img.image = Resources.Load<Texture2D>("Assets/UI/powered.png");
         img.style.position = Position.Absolute;
         img.style.scale = new StyleScale(new Vector2(0.1f, 0.1f));
         //questionField.Add(img);
@@ -44,7 +47,7 @@ public class NameEntry : BaseScreen
 
         root.Add(labelFromUXML);
 
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/UI/myStyle.uss");
+        var styleSheet = Resources.Load<StyleSheet>("Assets/UI/myStyle.uss");
 
     }
 

@@ -7,6 +7,10 @@ public class DataSender : MonoBehaviour, ArduinoEvent
 {
     private string serverURL = "http://localhost:5000/write"; // Replace with your Flask server URL
 
+    private void OnApplicationQuit() {
+        ShutOffVibrations();
+    }
+
     void Start()
     {
         Debug.Log("Starting...");   

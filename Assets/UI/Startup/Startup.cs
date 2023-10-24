@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using Unity;
 using System.Linq;
@@ -27,14 +26,14 @@ public class Startup : BaseScreen
     {
         base.Rebuild(myQ);
 
-        visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/Startup/Startup.uxml");
+        visualTree = Resources.Load<VisualTreeAsset>("Startup");
         labelFromUXML = visualTree.Instantiate();
         root.Add(labelFromUXML);
 
         Button finishButton = labelFromUXML.Q<Button>();
         finishButton.RegisterCallback<ClickEvent>(FinishQuestion);
 
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/UI/myStyle.uss");
+        var styleSheet = Resources.Load<StyleSheet>("Assets/UI/myStyle.uss");
         
 
 

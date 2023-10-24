@@ -52,7 +52,8 @@ public partial class Session : MonoBehaviour
                     break;
 
                 case Qtype.input:
-                    //TODO fönster som låter användare fylla i ett svar i en textruta
+                    currentScreen = GetComponent<InputQ>();
+                    currentScreen.Rebuild(question.withParticipants(participants));
                     break;
 
                 case Qtype.rank:

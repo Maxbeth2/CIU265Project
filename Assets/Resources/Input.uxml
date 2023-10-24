@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/myStyle.uss?fileID=7433441132597879392&amp;guid=05e07b1e34cf1461ea855132bf1ddb69&amp;type=3#myStyle" />
+    <ui:VisualElement name="root" style="flex-grow: 1; flex-direction: row; justify-content: center; width: auto; background-color: rgb(0, 0, 0); height: auto;">
+        <ui:VisualElement name="questionField" style="flex-grow: 1; background-color: rgb(0, 46, 4); width: 300px; height: 365px; align-items: center; flex-direction: column; justify-content: center;">
+            <ui:TextField picking-mode="Ignore" label="Enter ans" value="filler text" name="TextField" style="color: rgb(132, 255, 126);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
